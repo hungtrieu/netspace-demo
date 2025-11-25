@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Học Từ Tam Quốc Diễn Nghĩa | E-Magazine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #8E1600; /* Màu đỏ thắm kiểu cổ trang */
+            --secondary-color: #1a1a1a;
+            --accent-color: #D4AF37; /* Màu vàng kim */
+            --bg-paper: #f9f7f1; /* Màu giấy cũ */
+            --text-body: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: var(--bg-paper);
+            color: var(--text-body);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary-color);
+        }
+
+        /* --- PARALLAX EFFECT --- */
+        .parallax-section {
+            position: relative;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .parallax-overlay {
+            background: rgba(0, 0, 0, 0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+            max-width: 800px;
+        }
+
+        /* Hình 1: Advisors */
+        .bg-1 {
+            background-image: url('https://vanhocdienanh.vn/wp-content/uploads/2024/09/10-quan-su-muu-si-tai-ba-nhat-tam-quoc-dien-nghia-1240x800.jpg');
+            height: 100vh; /* Full màn hình đầu tiên */
+        }
+
+        /* Hình 2: Peach Garden */
+        .bg-2 {
+            background-image: url('https://dogomaitoan.net/wp-content/uploads/2021/09/Dien-tich-ket-nghia-dao-vien.jpg');
+        }
+
+        /* Hình 3: War Map/Scene */
+        .bg-3 {
+            background-image: url('https://cafefcdn.com/203337114487263232/2024/8/11/9a9bdf5c24a354e24d2698954a27f089-1722937581819310268611-1723363500634-17233635007861397462208.jpg');
+        }
+
+        /* --- TYPOGRAPHY & LAYOUT --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .main-title {
+color:white;
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .sub-title {
+            font-size: 1.2rem;
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .drop-cap::first-letter {
+            font-size: 4rem;
+            float: left;
+            line-height: 0.8;
+            padding-right: 10px;
+            color: var(--primary-color);
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- HIGHLIGHTS & NUMBERS --- */
+        .stat-box {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: #666;
+        }
+
+        /* --- COLUMNS & GRID --- */
+        .three-kings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .king-card {
+            background: white;
+            padding: 30px;
+            border-top: 5px solid var(--primary-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .king-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .king-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .character-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .character-grid {
+                grid-template-columns: 1fr;
+            }
+            .main-title {
+                font-size: 2rem;
+            }
+        }
+
+        .char-item {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .char-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        /* --- QUOTES --- */
+        .pull-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            text-align: center;
+            color: var(--primary-color);
+            margin: 50px auto;
+            max-width: 80%;
+            position: relative;
+        }
+
+        .pull-quote::before {
+            content: "“";
+            font-size: 4rem;
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            opacity: 0.2;
+        }
+
+        /* --- COMPARISON SECTION --- */
+        .comparison-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .comparison-col {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .comparison-col h3 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* --- FOOTER --- */
+        .footer-sig {
+            text-align: right;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ccc;
+            font-style: italic;
+        }
+
+        /* --- ANIMATION --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .highlight-text {
+            background: linear-gradient(120deg, rgba(212, 175, 55, 0.3) 0%, rgba(212, 175, 55, 0.3) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.4em;
+            background-position: 0 88%;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="parallax-section bg-1">
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content fade-in">
+            <h1 class="main-title">Những Bài Học Rút Ra Từ<br>Tam Quốc Diễn Nghĩa</h1>
+            <p class="sub-title">Ứng dụng trí tuệ cổ nhân vào cuộc sống hiện đại</p>
+        </div>
+    </header>
+
+    <section class="container fade-in">
+        <p class="drop-cap">
+            Ngay cả đối với bạn nào cả đời không thích đọc sách thì cũng nên đọc qua một lần bộ truyện Tam Quốc Chí hay Tam Quốc Diễn Nghĩa của La Quán Trung. Nội dung đều nói về thời kỳ loạn lạc cuối nhà Đông Hán, khi ba thế lực lớn là Ngụy, Thục, Ngô tranh giành quyền lực.
+        </p>
+        <p style="margin-top: 20px;">
+            Thực sự thì có đọc chính sử đi nữa cũng không thể đúng hoàn toàn. Vì lịch sử thường được chép lại bởi triều đại sau, bởi kẻ mạnh. La Quán Trung đã tiểu thuyết hóa tác phẩm theo tỷ lệ:
+        </p>
+
+        <div class="stat-box">
+            <div class="stat-item">
+                <span class="stat-number">70%</span>
+                <span class="stat-label">Sự thật lịch sử</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">30%</span>
+                <span class="stat-label">Hư cấu văn học</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Giá trị bài học</span>
+            </div>
+        </div>
+
+        <p>
+            Phần hư cấu chính là những phần hay nhất về mặt văn học, tạo nên sức sống vượt thời gian cho tác phẩm. Hãy cùng chiêm nghiệm những bài học sâu sắc dưới đây.
+        </p>
+    </section>
+
+    <hr style="width: 50%; margin: 0 auto; border-color: #ddd;">
+
+    <section class="container fade-in">
+        <h2 style="text-align: center; margin-bottom: 30px;">1. Phong Cách Lãnh Đạo & Khởi Nghiệp</h2>
+        
+        <div class="three-kings-grid">
+            <div class="king-card">
+                <h3>Tào Tháo</h3>
+                <p><em>"Muốn giữ nghiệp, học Tào Tháo"</em></p>
+                <p style="font-size: 0.9rem; margin-top: 10px;">
+                    Thông minh, đa mưu, xuất thân danh gia. Biết dùng người tài, không câu nệ. Nắm thiên tử lệnh chư hầu. Bài học về quản trị nhân sự và tận dụng nguồn lực.
+                </p>
+            </div>
+            <div class="king-card">
+                <h3>Tôn Quyền</h3>
+                <p><em>"Muốn kế nghiệp, học Tôn Quyền"</em></p>
+                <p style="font-size: 0.9rem; margin-top: 10px;">
+                    Thừa hưởng cơ nghiệp cha anh. Tài năng không kém tiền nhân, biết giữ gìn và phát triển nền móng có sẵn. Bài học về sự kế thừa bền vững.
+                </p>
+            </div>
+            <div class="king-card">
+                <h3>Lưu Bị</h3>
+                <p><em>"Muốn khởi nghiệp, học Lưu Bị"</em></p>
+                <p style="font-size: 0.9rem; margin-top: 10px;">
+                    Tay trắng dựng cơ đồ. Có chí hướng và mục tiêu rõ ràng khiến nhân tài (Quan, Trương, Gia Cát) cam tâm tình nguyện đi theo. Bài học về Tầm nhìn và Đắc nhân tâm.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="parallax-section bg-2">
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content fade-in">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Nghĩa Khí & Tính Cách</h2>
+            <p style="font-size: 1.2rem; font-style: italic;">"Không có kẻ thù vĩnh viễn, không có bạn bè vĩnh viễn, chỉ có lợi ích là vĩnh hằng?"</p>
+        </div>
+    </section>
+
+    <section class="container fade-in">
+        <h2 style="text-align: center; margin-bottom: 10px;">2. Bài Học Từ Tính Cách Nhân Vật</h2>
+        <p style="text-align: center; margin-bottom: 40px; color: #666;">Thành bại tại nhân, sướng khổ tại tâm</p>
+
+        <div class="character-grid">
+            <div>
+                <div class="char-item">
+                    <h4>Lã Bố - Bất tín</h4>
+                    <p>Mãnh tướng vô địch nhưng phản bội cha nuôi, thiếu chữ tín nên không ai dám dùng, kết cục bi thảm.</p>
+                </div>
+                <div class="char-item">
+                    <h4>Đổng Trác - Lạm quyền</h4>
+                    <p>Tàn ác và hoang dâm. Điển hình cho việc "Anh hùng không qua ải mỹ nhân".</p>
+                </div>
+                <div class="char-item">
+                    <h4>Viên Thuật & Viên Thiệu</h4>
+                    <p>Tài không xứng ngôi, thiếu quyết đoán, không nghe lời khuyên can nên bỏ lỡ thời cơ.</p>
+                </div>
+                <div class="char-item">
+                    <h4>Dương Tu, Hứa Du - Khoe khoang</h4>
+                    <p>Thông minh nhưng không biết che giấu, tỏ ra giỏi hơn sếp là điều đại kỵ nơi công sở.</p>
+                </div>
+            </div>
+            <div>
+                <div class="char-item">
+                    <h4>Tư Mã Ý - Ẩn nhẫn</h4>
+                    <p>Biết tiến biết lùi, biết giả thua. Hiểu quy luật "thỏ chết chó săn bị giết" để bảo toàn lực lượng.</p>
+                </div>
+                <div class="char-item">
+                    <h4>Chu Du - Đố kỵ</h4>
+                    <p>Chết vì tức giận ("Trời sinh Du sao còn sinh Lượng"). Đố kỵ chỉ làm hại bản thân.</p>
+                </div>
+                <div class="char-item">
+                    <h4>Quan Vũ - Tự phụ</h4>
+                    <p>Trung nghĩa nhưng cái tôi quá lớn, khinh địch dẫn đến mất mạng và mất Kinh Châu.</p>
+                </div>
+                <div class="char-item">
+                    <h4>Trương Phi - Nóng nảy</h4>
+                    <p>Không kiềm chế cảm xúc, đánh đập thuộc hạ, dẫn đến bị chính người mình phản bội.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pull-quote">
+            "Nên tin vừa đủ và đề phòng không thừa."
+        </div>
+    </section>
+
+    <section class="container fade-in" style="background-color: #f0ebe0; padding: 40px; border-radius: 8px;">
+        <h3>Hình mẫu lý tưởng: Triệu Tử Long</h3>
+        <p style="margin-top: 15px;">
+            Một dũng tướng kỳ tài nặng lòng trung hiếu. Lưu Bị từng từ chối <span class="highlight-text">3000 binh lính</span> chỉ để đổi lấy một Triệu Vân. Ông là người:
+        </p>
+        <ul style="margin: 20px 40px; list-style-type: square;">
+            <li>Chưa bao giờ bại trận.</li>
+            <li>Xông pha giữa vạn quân cứu A Đẩu.</li>
+            <li>Sống thọ và mất vì tuổi già (điều hiếm hoi với võ tướng).</li>
+        </ul>
+        <p>Đó là tấm gương về sự chuyên nghiệp, trung thành và bản lĩnh.</p>
+    </section>
+
+    <section class="parallax-section bg-3">
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content fade-in">
+            <h2>Luận Cổ Suy Kim</h2>
+            <p>Chiến lược - Kiên Nhẫn - Nhân Văn</p>
+        </div>
+    </section>
+
+    <section class="container fade-in">
+        <h2 style="text-align: center; margin-bottom: 40px;">Cuộc Đối Đầu Kinh Điển</h2>
+        
+        <div class="comparison-wrapper">
+            <div class="comparison-col">
+                <h3>Tư Mã Ý</h3>
+                <p>Bậc thầy của sự <strong>ẩn nhẫn</strong>. Trong trận "Không thành kế", ông thừa hiểu tình thế nhưng chọn cách rút lui. Vì ông biết nếu diệt Thục quá sớm, ông sẽ hết giá trị lợi dụng ("Điểu tận cung tàn"). Ông nhẫn nhục chờ thời để tạo cơ sở cho con cháu thống nhất thiên hạ.</p>
+            </div>
+            <div class="comparison-col">
+                <h3>Gia Cát Lượng</h3>
+                <p>Biểu tượng của <strong>trung quân ái quốc</strong>. "Cúc cung tận tụy, đến chết mới thôi". Dù biết mệnh trời đã tận, dù vua sau bất tài, ông vẫn gánh vác giang sơn, để lại di thư và kế sách cho hậu thế. Một nhân cách lớn, thẳng thắn và đầy nghĩa khí.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 60px;">
+            <h3>Lời kết: Cái giá của hòa bình</h3>
+            <p>
+                Dù là phe nào, quy luật "Được làm vua, thua làm giặc" vẫn tàn khốc. Chiến tranh khiến "Máu chảy thành sông, thây chất thành đống". 
+            </p>
+            <p style="margin-top: 15px;">
+                Nhớ lời người xưa: <span class="highlight-text">"Mười phần chết bảy còn ba / chết hai còn một mới ra thái bình"</span>. 
+            </p>
+            <p style="margin-top: 15px;">
+                Đọc lại bộ truyện, không chỉ học mưu kế, mà còn để trân trọng hòa bình. Mong thế giới bớt khổ đau, hành xử văn minh để nhân loại cùng phát triển.
+            </p>
+        </div>
+
+        <div class="footer-sig">
+            <p>Saigon, ngày 26/6/2025</p>
+            <p><strong>Hoàng Thị Bích Hà</strong></p>
+        </div>
+    </section>
+
+    <footer style="background: var(--secondary-color); color: #888; text-align: center; padding: 20px; font-size: 0.8rem; margin-top: 50px;">
+        <p>E-Magazine Design Template | Tam Quốc Diễn Nghĩa</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
