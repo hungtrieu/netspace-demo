@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristiano Ronaldo: Hành Trình Vượt Thời Gian</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #c0392b; /* Màu đỏ đô làm điểm nhấn */
+            --text-color: #2c3e50;     /* Màu chữ chính tối màu dễ đọc */
+            --bg-color: #fdfbf7;       /* Màu nền kem nhẹ nhàng */
+            --accent-bg: #1a1a1a;      /* Màu nền tối cho footer */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            overflow-x: hidden; /* Ẩn thanh cuộn ngang không mong muốn */
+        }
+
+        h1, h2, h3, .quote, .stat-number {
+            font-family: 'Playfair Display', serif; /* Font có chân sang trọng */
+        }
+
+        /* --- CẤU HÌNH PARALLAX VÀ ẢNH --- */
+        .parallax {
+            background-attachment: fixed; /* Tạo hiệu ứng parallax: ảnh nền đứng yên khi cuộn */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Ảnh bìa (Hero Image) - Sử dụng ảnh 1 bạn cung cấp */
+        .hero-img {
+             height: 85vh; /* Chiều cao chiếm 85% màn hình */
+            /* Thêm lớp gradient tối để làm nổi bật chữ trắng bên trên */
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('https://cdn.gocnhinmoi.vn/gocnhinmoi/2025/11/24/ronaldo-al-nassr-al-khaleej-2-0f0be81c33466c4vwnp.webp');
+            background-position: center top; /* Canh chỉnh để thấy rõ hành động */
+        }
+
+        /* Ảnh giữa bài - Sử dụng ảnh 2 bạn cung cấp */
+        .mid-img {
+            background-image: url('https://cdn.gocnhinmoi.vn/gocnhinmoi/2025/11/24/ronaldo-al-nassr-al-khaleej-7109be2ecbc30etgtic.webp');
+            height: 70vh;
+            background-position: center 20%; /* Canh chỉnh vị trí trọng tâm ảnh khi cuộn */
+            margin-top: 60px;
+        }
+
+        /* --- NỘI DUNG TRÊN ẢNH BÌA --- */
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            padding: 20px;
+            max-width: 900px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1.5s forwards 0.5s; /* Hiệu ứng trồi lên khi tải trang */
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.7);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            font-style: italic;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        /* --- KHUNG NỘI DUNG CHÍNH --- */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        /* Dropcap: Chữ cái đầu tiên lớn */
+        .first-p::first-letter {
+            float: left;
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            line-height: 0.8;
+            padding-right: 15px;
+            padding-top: 5px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* --- PHẦN HIGHLIGHT SỐ LIỆU (STATS) --- */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Tự động chia cột responsive */
+            gap: 30px;
+            margin: 60px 0;
+            background: #fff;
+            padding: 50px 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08); /* Đổ bóng tạo chiều sâu */
+            border-bottom: 5px solid var(--primary-color);
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            line-height: 1;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        /* --- BỐ CỤC NHIỀU CỘT --- */
+        .two-columns {
+            column-count: 2;
+            column-gap: 50px;
+            margin: 40px 0;
+            text-align: justify;
+        }
+
+        /* --- TRÍCH DẪN (QUOTE) --- */
+        blockquote {
+            font-size: 1.8rem;
+            text-align: center;
+            margin: 50px auto;
+            color: var(--primary-color);
+            padding: 30px 40px;
+            font-style: italic;
+            position: relative;
+            max-width: 700px;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* --- CHÚ THÍCH ẢNH --- */
+        .caption {
+            font-size: 0.9rem;
+            color: #777;
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        /* --- HIỆU ỨNG KHI CUỘN (SCROLL ANIMATION) --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease-out; /* Mượt mà hơn */
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            background-color: var(--accent-bg);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer h3 {
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        /* --- RESPONSIVE: ĐIỀU CHỈNH CHO DI ĐỘNG --- */
+        @media (max-width: 768px) {
+            .two-columns {
+                column-count: 1; /* Về 1 cột trên màn hình nhỏ */
+            }
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .hero-img {
+                height: 70vh;
+                 background-position: center center;
+            }
+             .mid-img {
+                height: 50vh;
+                background-attachment: scroll; /* Tắt parallax trên mobile để tăng hiệu năng */
+            }
+            .stat-number {
+                font-size: 3rem;
+            }
+            blockquote {
+                 font-size: 1.4rem;
+                 padding: 20px;
+            }
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="parallax hero-img">
+        <div class="hero-content">
+            <h1 class="hero-title">NGƯỜI KHÔNG TUỔI</h1>
+            <p class="hero-subtitle">Giải mã "tuổi sinh học 28.9" và siêu phẩm xe đạp chổng ngược của Ronaldo</p>
+        </div>
+    </header>
+
+    <article class="container">
+        <div class="reveal">
+            <p class="first-p">Cả thế giới ngưỡng mộ khi Cristiano Ronaldo thêm một lần thực hiện điều phi thường: ghi bàn theo kiểu xe đạp chổng ngược khi đã ngoài 40 tuổi. Anh chỉ còn 46 bàn thắng nữa là cán mốc không tưởng trong bóng đá hiện đại: tròn 1.000 bàn thắng.</p>
+            
+            <p>Siêu sao Cristiano Ronaldo vừa khiến thế giới bóng đá thêm một lần phải lắc đầu kinh ngạc khi tung cú xe đạp chổng ngược trong chiến thắng 4-1 của Al-Nassr trước Al-Khaleej. Bàn thắng ấy, gợi nhớ tuyệt tác anh từng thực hiện vào lưới Juventus năm 2018 ở tứ kết Champions League.</p>
+            
+            <p>Những bàn thắng kiểu này không chỉ khẳng định phẩm chất nghệ sĩ mà còn đặt ra một câu hỏi quen thuộc nhưng chưa bao giờ cũ: bằng cách nào một cầu thủ đã bước sang tuổi 40 vẫn có thể chơi thứ bóng đá giàu sức mạnh, giàu cảm hứng và giàu tính biểu tượng đến vậy. Đó đã là bàn thắng thứ 10 sau 9 trận của anh mùa này ở Saudi Pro League và là bàn thứ 954 trong sự nghiệp.</p>
+        </div>
+
+        <div class="stats-section reveal">
+            <div class="stat-item">
+                <span class="stat-number">28.9</span>
+                <span class="stat-label">Tuổi sinh học</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">954</span>
+                <span class="stat-label">Bàn thắng</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">1,000</span>
+                <span class="stat-label">Mục tiêu</span>
+            </div>
+        </div>
+
+        <div class="reveal">
+            <h2>Giải mã tuổi sinh học</h2>
+            <br>
+            <p>Những năm gần đây, Ronaldo được nhắc đến với tư cách chân sút hàng đầu, đồng thời trở thành một hiện tượng sinh học với những người thích nghiên cứu. Kết quả kiểm tra của công ty công nghệ thể thao Whoop cho thấy "tuổi sinh học" của Ronaldo chỉ vào khoảng 28,9 – thấp hơn khoảng 11 năm so với tuổi thật.</p>
+            
+            <p>Những dữ liệu mà Whoop sử dụng gồm nhịp tim, biến thiên nhịp tim (HRV), chất lượng giấc ngủ, mức độ hồi phục và cường độ vận động. Đó là các chỉ số phản ánh mức độ mệt mỏi tế bào, khả năng tái tạo và độ bền sinh lý. Đây là những khía cạnh quan trọng hơn nhiều so với tuổi theo năm vốn chỉ mang tính hình thức.</p>
+        </div>
+    </article>
+
+    <div class="parallax mid-img"></div>
+    <div class="container">
+        <p class="caption">Ronaldo sở hữu thể trạng phi thường ở tuổi ngoài 40. Ảnh: Al-Nassr</p>
+    </div>
+
+    <article class="container reveal">
+        <blockquote>
+            "Nếu mọi thứ diễn biến như hiện tại, tôi có thể thi đấu thêm vài năm nữa."
+        </blockquote>
+
+        <div class="two-columns">
+            <p>Ronaldo vốn nổi tiếng với chế độ dinh dưỡng khắt khe: ăn nhiều bữa nhỏ với tỷ lệ đạm cao, hạn chế đường và chất béo, kiểm soát vi chất và lượng nước đưa vào cơ thể. Anh duy trì thói quen tập luyện đều đặn gồm gym, sức mạnh, cardio và bơi lội.</p>
+            
+            <p>Đồng thời tích hợp những phương pháp phục hồi mà giới thể thao chuyên nghiệp cũng phải học hỏi, như cryotherapy – liệu pháp lạnh giúp giảm viêm, kích thích tuần hoàn và rút ngắn thời gian hồi phục sau gắng sức. Một điểm đặc biệt nữa là Ronaldo rất coi trọng giấc ngủ.</p>
+            
+            <p>Nhiều nguồn cho rằng anh áp dụng mô hình ngủ đa pha, chia giấc ngủ thành nhiều đoạn ngắn trong ngày, giúp tế bào có nhiều thời gian phục hồi mà không bị căng thẳng kéo dài. Những thói quen ấy giúp CR7 duy trì các chỉ số sinh lý ổn định: Nhịp tim nghỉ thấp, HRV cao, phản ứng hồi phục nhanh sau thi đấu.</p>
+
+            <p>Vì thế, cú xe đạp chổng ngược vào lưới Al-Khaleej không phải là khoảnh khắc ngẫu hứng, mà là hệ quả của một quy trình vận hành cơ thể được tối ưu hóa trong gần hai thập kỷ. Khả năng cảm nhận nhịp thi đấu, thời điểm bật nhảy, sức mạnh xoay eo và độ chính xác khi tiếp bóng, tất cả đều cần một cơ thể vừa linh hoạt vừa mạnh mẽ.</p>
+        </div>
+
+        <div class="reveal">
+            <h2>Tấm gương thể thao & Kỷ nguyên mới</h2>
+            <br>
+            <p>Câu chuyện tuổi sinh học của Ronaldo còn mở ra một góc nhìn thú vị về cách bóng đá đương đại tiếp cận vấn đề lão hóa. Ronaldo đập vỡ những định nghĩa cũ kỹ về giới hạn tuổi tác. Không chỉ vì tài năng thiên bẩm mà vì anh là minh chứng cho xu hướng đang lan rộng: thể thao đỉnh cao đang dịch chuyển từ mô hình tập luyện "cao cường độ – cao rủi ro" sang mô hình cá nhân hóa dựa trên dữ liệu sinh học.</p>
+            
+            <p>Ronaldo hiện cũng là hình mẫu đặc biệt mà giới khoa học thể thao và thể chất đều quan tâm. Siêu sao Bồ Đào Nha đại diện cho sự giao thoa giữa công nghệ theo dõi sức khỏe, phục hồi cá nhân hóa, tư duy dài hạn và tính kỷ luật ở cấp độ gần như khoa học.</p>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <h3>HÀNH TRÌNH TỚI 1.000 BÀN THẮNG</h3>
+        <p>Ronaldo cho thấy một điều mà bóng đá đôi khi quên mất: tuổi tác không nhất thiết là bản án.</p>
+        <p style="margin-top: 30px; font-size: 0.85rem; opacity: 0.6; letter-spacing: 1px;">E-MAGAZINE BÓNG ĐÁ 2025</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                // Khoảng cách từ đáy màn hình để bắt đầu kích hoạt hiệu ứng
+                const elementVisible = 120; 
+
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+
+            // Lắng nghe sự kiện cuộn
+            window.addEventListener('scroll', revealOnScroll);
+            // Gọi hàm một lần ngay khi tải để hiện các phần tử đã nằm trong vùng nhìn thấy
+            revealOnScroll();
+        });
+    </script>
+</body>
+</html>
